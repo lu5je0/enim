@@ -2,6 +2,7 @@
 import argparse
 import base64
 import re
+import sys
 
 from PIL import Image
 
@@ -74,8 +75,11 @@ def init():
         print(base64.b64decode(decode_image(Image.open(options.img))).decode('utf8'))
     else:
         img = Image.open(options.img)
-        # base64编码
-        text_bs64 = base64.b64encode(options.text.encode("utf8"))
+        # 判断是否有管道数据,base64编码
+        if not sys.stdin.isatty():
+            text_bs64 = base64.b64encode(sys.stdin.read().encode("utf8"))
+        else:
+            text_bs64 = base64.b64encode(options.text.encode("utf8"))
         img_encode = encode_image(img, text_bs64.decode("utf8"))
         img_encode.save(options.output)
         print("done")
