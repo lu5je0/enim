@@ -61,14 +61,12 @@ def decode_image(image):
     return decode_byte(binary_str[:end_index])
 
 
-parser = argparse.ArgumentParser()
-parser.add_argument("img")
-parser.add_argument("-t", "--text", default="")
-parser.add_argument("-o", "--output", default="encoded.png")
-parser.add_argument("-x", action="store_true", dest="decode", default=False)
-
-
 def init():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("img")
+    parser.add_argument("-t", "--text", default="")
+    parser.add_argument("-o", "--output", default="encoded.png")
+    parser.add_argument("-x", action="store_true", dest="decode", default=False)
     options = parser.parse_args()
     if options.decode:
         # 最后进行base64解码
