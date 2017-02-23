@@ -72,7 +72,7 @@ def init():
     options = parser.parse_args()
     if options.decode:
         # 最后进行base64解码
-        print(base64.b64decode(decode_image(Image.open(options.img))).decode('utf8'))
+        print(base64.b64decode(decode_image(Image.open(options.img))).decode('utf8'), end="")
     else:
         img = Image.open(options.img)
         # 判断是否有管道数据,base64编码
