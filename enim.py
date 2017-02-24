@@ -64,7 +64,7 @@ def decode_image(image):
 def init():
     parser = argparse.ArgumentParser()
     parser.add_argument("img")
-    parser.add_argument("-t", "--text", default="")
+    parser.add_argument("-s", "--string", default="")
     parser.add_argument("-o", "--output", default="encoded.png")
     parser.add_argument("-x", action="store_true", dest="decode", default=False)
     options = parser.parse_args()
@@ -77,7 +77,7 @@ def init():
         if not sys.stdin.isatty():
             text_bs64 = base64.b64encode(sys.stdin.read().encode("utf8"))
         else:
-            text_bs64 = base64.b64encode(options.text.encode("utf8"))
+            text_bs64 = base64.b64encode(options.string.encode("utf8"))
         img_encode = encode_image(img, text_bs64.decode("utf8"))
         img_encode.save(options.output)
         print("done")
