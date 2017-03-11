@@ -10,4 +10,5 @@
 - -s STRING, --string STRING
 - -o OUTPUT, --output OUTPUT
 - -x
-依赖库 pillow
+
+## 依赖库 pillow
