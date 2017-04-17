@@ -11,4 +11,4 @@
 - -o OUTPUT, --output OUTPUT
 - -x
 
-## 依赖库 pillow
+## Requirements pillow
