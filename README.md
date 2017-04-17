@@ -11,4 +11,5 @@
 - -o OUTPUT, --output OUTPUT
 - -x
 
-## Requirements pillow
+## Requirements:
+pillow
